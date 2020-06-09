@@ -1,38 +1,39 @@
 # SiamKPN
 Pytorch implementation of our paper [Siamese Keypoint Prediction Network for Visual Object Tracking](https://arxiv.org/abs/2006.04078).
-
+Contact: [qinke87@gmail.com]
 ## Intorduction
 In this paper, we propose the Siamese keypoint prediction network (SiamKPN). Upon a Siamese backbone for feature embedding, SiamKPN benefits from a cascade heatmap strategy for coarseto-fine prediction modeling.
-![Framework of SiamKPN](https://github.com/ZekuiQin/SiamKPN/blob/master/images/framework.pdf)
+![Framework of SiamKPN](https://github.com/ZekuiQin/SiamKPN/blob/master/images/framework.png)
 
 ## Main Results
-Note:
-- speed tested on GTX-1080Ti
-- SiamKPN-1s refers to SiamKPN with one stage and so on.
-- SiamKPN models on OTB-100 were trained with 20% random gray splits.
-- Models Extraction Code: j9yb
 
 ### Results on OTB-100
 |   Traker  | AUC | Pre | Var decay| Speed | Model |
 |:---------:|:---:|:---:|:--------:|:-----:|:-----:|
-|SiamKPN-1s |0.687|0.906|    Yes   | 40FPS |[link]()|
-|SiamKPN-2s |0.702|0.916|    Yes   | 32FPS |[link]()|
-|SiamKPN-3s |0.712|0.927|    Yes   | 24FPS |[link]()|
-|SiamKPN-3s |0.705|0.916|     No   | 24FPS |[link]()|    
+|SiamKPN-1s |0.687|0.906|    Yes   | 40FPS |[link](https://pan.baidu.com/s/1MJwiYxXifKk5h43hmHYVpw)|
+|SiamKPN-2s |0.702|0.916|    Yes   | 32FPS |[link](https://pan.baidu.com/s/1MJwiYxXifKk5h43hmHYVpw)|
+|SiamKPN-3s |0.712|0.927|    Yes   | 24FPS |[link](https://pan.baidu.com/s/1MJwiYxXifKk5h43hmHYVpw)|
+|SiamKPN-3s |0.705|0.916|     No   | 24FPS |[link](https://pan.baidu.com/s/1MJwiYxXifKk5h43hmHYVpw)|    
 ### Results on VOT2018
 |   Traker  | EAO |   A |  R  | Var decay| Speed | Model |
 |:---------:|:---:|:---:|:---:|:--------:|:-----:|:-----:|
-|SiamKPN-1s |0.413|0.584|0.229|   Yes    | 40FPS |[link]()|
-|SiamKPN-2s |0.428|0.595|0.211|   Yes    | 32FPS |[link]()|
-|SiamKPN-3s |0.440|0.605|0.187|   Yes    | 24FPS |[link]()|
+|SiamKPN-1s |0.413|0.584|0.229|   Yes    | 40FPS |[link](https://pan.baidu.com/s/1MJwiYxXifKk5h43hmHYVpw)|
+|SiamKPN-2s |0.428|0.595|0.211|   Yes    | 32FPS |[link](https://pan.baidu.com/s/1MJwiYxXifKk5h43hmHYVpw)|
+|SiamKPN-3s |0.440|0.605|0.187|   Yes    | 24FPS |[link](https://pan.baidu.com/s/1MJwiYxXifKk5h43hmHYVpw)|
+
+Note:
+- speed tested on GTX-1080Ti
+- SiamKPN-1s refers to SiamKPN with one stage and so on.
+- SiamKPN models on OTB-100 were trained with 20% random gray splits.
+- Models Extraction Code: gw6s
 
 ## Usage
 Please find installation instructions in [INSTALL.md](https://github.com/ZekuiQin/SiamKPN/blob/master/INSTALL.md).
 ### Add SiamKPN to your PYTHONPATH
 ```export PYTHONPATH=/path/to/SiamKPN:$PYTHONPATH```
 ### Train
-Please prepare training datasets and testing datasets refer to [pysot](https://github.com/STVIR/pysot#introduction).
-Change the dataset paths to yours in pysot/datasets/dataset.py、tools/test.py and tools/eval.py.  
+- Please prepare training datasets and testing datasets refer to [pysot](https://github.com/STVIR/pysot#introduction).
+- Change the dataset paths to yours in pysot/datasets/dataset.py, tools/test.py and tools/eval.py.  
 
 Take the usage of SiamKPN-3s_VOT as an example.
 ```
