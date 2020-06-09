@@ -1,6 +1,6 @@
 # SiamKPN
-Pytorch implementation of our paper [Siamese Keypoint Prediction Network for Visual Object Tracking](https://arxiv.org/abs/2006.04078).
-Contact: [qinke87@gmail.com]
+<br/>Pytorch implementation of our paper [Siamese Keypoint Prediction Network for Visual Object Tracking](https://arxiv.org/abs/2006.04078).</br> 
+Contact: [qinke87@gmail.com](qinke87@gmail.com)
 ## Intorduction
 In this paper, we propose the Siamese keypoint prediction network (SiamKPN). Upon a Siamese backbone for feature embedding, SiamKPN benefits from a cascade heatmap strategy for coarseto-fine prediction modeling.
 ![Framework of SiamKPN](https://github.com/ZekuiQin/SiamKPN/blob/master/images/framework.png)
