@@ -22,7 +22,7 @@ In this paper, we propose the Siamese keypoint prediction network (SiamKPN). Upo
 |SiamKPN-3s |0.440|0.605|0.187|   Yes    | 24FPS |[link](https://pan.baidu.com/s/1MJwiYxXifKk5h43hmHYVpw)|
 
 Note:
-- speed tested on GTX-1080Ti
+- Speed tested on GTX-1080Ti.
 - SiamKPN-1s refers to SiamKPN with one stage and so on.
 - SiamKPN models on OTB-100 were trained with 20% random gray splits.
 - Models Extraction Code: gw6s
@@ -82,9 +82,9 @@ Our code is based on [pysot](https://github.com/STVIR/pysot#introduction).
 
 ## Citation
 
-	@inproceedings{Li_2020_SiamKPN,  
+	@article{Li_2020_SiamKPN,  
   	  title={Siamese Keypoint Prediction Network for Visual Object Tracking},  
-  	  author={Li, Qin and Zhang, Zheng},  
-   	  booktitle={arXiv preprint arXiv:2006.04078},  
+  	  author={Li, Qiang and Qin, Zekui and Zhang, Wenbo and Zheng, Wen},  
+   	  journal={arXiv preprint arXiv:2006.04078},  
   	  year={2020}  
 	}
