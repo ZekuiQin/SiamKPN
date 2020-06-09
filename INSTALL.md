@@ -5,7 +5,7 @@ This document contains detailed instructions for installing dependencies for Sia
 ### Requirments
 * Conda with Python 3.7.
 * Nvidia GPU.
-* PyTorch 0.4.1
+* PyTorch>=0.4.0
 * yacs
 * pyyaml
 * matplotlib

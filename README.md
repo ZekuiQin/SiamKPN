@@ -1,15 +1,84 @@
 # SiamKPN
 Pytorch implementation of our paper [Siamese Keypoint Prediction Network for Visual Object Tracking](https://arxiv.org/abs/2006.04078).
+
 ## Intorduction
 In this paper, we propose the Siamese keypoint prediction network (SiamKPN). Upon a Siamese backbone for feature embedding, SiamKPN benefits from a cascade heatmap strategy for coarseto-fine prediction modeling.
 ![Framework of SiamKPN](https://github.com/ZekuiQin/SiamKPN/blob/master/images/framework.pdf)
+
 ## Main Results
+Note:
+- speed tested on GTX-1080Ti
+- SiamKPN-1s refers to SiamKPN with one stage and so on.
+- SiamKPN models on OTB-100 were trained with 20% random gray splits.
+- Models Extraction Code: j9yb
+
 ### Results on OTB-100
-Our SiamKPN-3s achieves a success score of 0.712 and precision score of 0.927 on OTB-100.     
+|   Traker  | AUC | Pre | Var decay| Speed | Model |
+|:---------:|:---:|:---:|:--------:|:-----:|:-----:|
+|SiamKPN-1s |0.687|0.906|    Yes   | 40FPS |[link]()|
+|SiamKPN-2s |0.702|0.916|    Yes   | 32FPS |[link]()|
+|SiamKPN-3s |0.712|0.927|    Yes   | 24FPS |[link]()|
+|SiamKPN-3s |0.705|0.916|     No   | 24FPS |[link]()|    
 ### Results on VOT2018
-Our SiamKPN-3s achieves an EAO score of 0.440 on VOT2018.  
+|   Traker  | EAO |   A |  R  | Var decay| Speed | Model |
+|:---------:|:---:|:---:|:---:|:--------:|:-----:|:-----:|
+|SiamKPN-1s |0.413|0.584|0.229|   Yes    | 40FPS |[link]()|
+|SiamKPN-2s |0.428|0.595|0.211|   Yes    | 32FPS |[link]()|
+|SiamKPN-3s |0.440|0.605|0.187|   Yes    | 24FPS |[link]()|
+
+## Usage
+Please find installation instructions in [INSTALL.md](https://github.com/ZekuiQin/SiamKPN/blob/master/INSTALL.md).
+### Add SiamKPN to your PYTHONPATH
+```export PYTHONPATH=/path/to/SiamKPN:$PYTHONPATH```
+### Train
+Please prepare training datasets and testing datasets refer to [pysot](https://github.com/STVIR/pysot#introduction).
+Change the dataset paths to yours in pysot/datasets/dataset.py、tools/test.py and tools/eval.py.  
+
+Take the usage of SiamKPN-3s_VOT as an example.
+```
+cd experiments/siamkpn_r50_stack3_difstd
+CUDA_VISIBLE_DEVICES=0,1,2,3
+python -m torch.distributed.launch \
+    --nproc_per_node=4 \
+    ../../tools/train.py --cfg config.yaml > logs/train.log
+```
+### Test
+```
+python ../../tools/test.py \
+    --snapshot siamkpn-3s_vot.pth \
+    --config config.yaml \
+    --dataset VOT2018 
+```
+### Eval
+```
+python ../../tools/eval.py   \
+    --tracker_path ./results \
+    --dataset VOT2018
+```
+### Hyper-parameters Search
+A two-level grid search is employed to find the best configuration.
+```
+for k in 0 1 2 3; do {
+    for i in 0 1; do {
+        echo "GPU $k, task $i"
+        CUDA_VISIBLE_DEVICES=$k python -u ../../tools/hp_search_epoch.py \
+                --start-epoch 11 \
+                --end-epoch 12 \
+        --penalty-k 0.0,0.5,0.1 \
+        --window-influence 0.3,0.8,0.1 \
+        --lr 0.3,0.8,0.1 \
+        --config config.yaml \
+        --dataset VOT2018
+    } &
+    done
+    wait $!
+} &
+done
+wait $!
+```
 ## Acknowledgement
 Our code is based on [pysot](https://github.com/STVIR/pysot#introduction).
+
 ## Citation
 
 	@inproceedings{Li_2020_SiamKPN,  

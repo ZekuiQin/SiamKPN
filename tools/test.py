@@ -19,7 +19,7 @@ from toolkit.datasets import DatasetFactory
 from toolkit.utils.region import vot_overlap, vot_float2str
 
 
-parser = argparse.ArgumentParser(description='siamrpn tracking')
+parser = argparse.ArgumentParser(description='siamkpn tracking')
 parser.add_argument('--dataset', type=str,
         help='datasets')
 parser.add_argument('--config', default='', type=str,
@@ -38,16 +38,14 @@ def main():
     # load config
     cfg.merge_from_file(args.config)
 
-    dataset_root = os.path.join(your_dataet_path, args.dataset)
+    #!!! input your dataset path
+    dataset_root = os.path.join(your_dataset_path, args.dataset)
 
     # create model
     model = ModelBuilder()
 
     # load model
     model = load_pretrain(model, args.snapshot).cuda().eval()
-    for name,param in model.named_parameters():
-        if not 'kpn2.heatmap.head' in name:
-            param.requires_grad = False
 
     # build tracker
     tracker = build_tracker(model)

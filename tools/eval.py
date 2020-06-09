@@ -38,8 +38,9 @@ def main():
 
     assert len(trackers) > 0
     args.num = min(args.num, len(trackers))
-
-    root = os.path.join(your_dataet_path, args.dataset)
+    
+    #!!! input your dataset path
+    root = os.path.join(your_dataset_path, args.dataset)
 
     if 'OTB' in args.dataset:
         dataset = OTBDataset(args.dataset, root)
