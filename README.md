@@ -1,10 +1,7 @@
 # SiamKPN
 <br/>Pytorch implementation of our paper [Siamese Keypoint Prediction Network for Visual Object Tracking](https://arxiv.org/abs/2006.04078).</br> 
-<br/>Contact: [qinke87@gmail.com](qinke87@gmail.com)</br> 
-We claim SiamKPN is the first to consider the anchor-free scheme in the Siamese paradigm for object tracking as we submitted our paper in November, 2019 for the first time. Actually, there have been several trackers considering the anchor-free scheme.
-- [FCAF](https://ieeexplore.ieee.org/abstract/document/8817955)
-- [SiamFC++](https://arxiv.org/abs/1911.06188)
-- [FCOT](https://arxiv.org/abs/2004.07109)
+Contact: [qinke87@gmail.com](qinke87@gmail.com)
+
 ## Intorduction
 In this paper, we propose the Siamese keypoint prediction network (SiamKPN). Upon a Siamese backbone for feature embedding, SiamKPN benefits from a cascade heatmap strategy for coarseto-fine prediction modeling.
 ![Framework of SiamKPN](https://github.com/ZekuiQin/SiamKPN/blob/master/images/framework.png)
@@ -83,6 +80,11 @@ wait $!
 ```
 ## Acknowledgement
 Our code is based on [pysot](https://github.com/STVIR/pysot#introduction).
+
+We claim SiamKPN is the first to consider the anchor-free scheme in the Siamese paradigm for object tracking as we submitted our paper in November, 2019 for the first time. Actually, there have been several trackers considering the anchor-free scheme.
+- [FCAF](https://ieeexplore.ieee.org/abstract/document/8817955)
+- [SiamFC++](https://arxiv.org/abs/1911.06188)
+- [FCOT](https://arxiv.org/abs/2004.07109)
 
 ## Citation
 
