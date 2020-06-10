@@ -81,10 +81,11 @@ wait $!
 ## Acknowledgement
 Our code is based on [pysot](https://github.com/STVIR/pysot#introduction).
 
-We claim SiamKPN is the first to consider the anchor-free scheme in the Siamese paradigm for object tracking as we submitted our paper in November, 2019 for the first time. Actually, there have been several trackers considering the anchor-free scheme.
+We claim SiamKPN is the first to consider the anchor-free scheme in the Siamese paradigm for object tracking as we submitted our paper to CVPR 2020 in November 2019, though unfortunately get rejected. Concurrently, there were three other trackers considering the anchor-free scheme.
 - [FCAF](https://ieeexplore.ieee.org/abstract/document/8817955)
 - [SiamFC++](https://arxiv.org/abs/1911.06188)
 - [FCOT](https://arxiv.org/abs/2004.07109)
+Apart from the same motivation, SiamKPN also considered the cascade strategy for the anchor-free scheme to handle background distractors during tracking.
 
 ## Citation
 
