@@ -26,6 +26,7 @@ Note:
 - Speed tested on GTX-1080Ti.
 - SiamKPN-1s refers to SiamKPN with one stage and so on.
 - SiamKPN models on OTB-100 were trained with 20% random gray splits.
+- We use modified ResNet-50 as the backbone model[link](https://pan.baidu.com/s/1MJwiYxXifKk5h43hmHYVpw).
 - Models Extraction Code: gw6s
 
 ## Usage
